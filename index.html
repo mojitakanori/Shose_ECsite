@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+    <script src="config.js"></script>
+    <script type="text/javascript" src="lib.js"></script>
+    <script type="text/javascript" src="jikken3.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>S3のテストページ</title>
+  </head>
+
+  <body>
+    <div id="header">
+      <h1>みんなの靴屋さん</h1>
+      <p>情報工学実験3@ISDL</p>
+    </div>
+
+    <div id="main-content">
+      <div class="controll-box">
+        <a>検索条件</a>
+        <form onsubmit="onClickSearchHandler();return false;">
+          <label>ブランド</label>
+          <input
+            type="text"
+            id="txtbox-brand"
+            name="param"
+            placeholder="NIKE"
+          />
+          <label style="font-size: 0.8em; color: gray"
+            >NIKE, adidas, REMME, ONITSUKA TIGER, ...</label
+          >
+          <div id="genre-select-box">
+            <input id="toggle1" type="checkbox" />
+            <label for="toggle1">スニーカー</label>
+            <input id="toggle2" type="checkbox">
+            <label for="toggle2">サンダル</label>
+            <input id="toggle3" type="checkbox">
+            <label for="toggle3">パンプス</label>
+            <input id="toggle4" type="checkbox">
+            <label for="toggle4">ドレスシューズ</label>
+            <input id="toggle5" type="checkbox">
+            <label for="toggle5">ローファー</label>
+            <input id="toggle6" type="checkbox">
+            <label for="toggle6">ブーツ</label>
+            <input id="toggle7" type="checkbox">              
+            <label for="toggle7">スリッポン</label>
+            <input id="toggle8" type="checkbox">
+            <label for="toggle8">ブーティ</label>
+            <input id="toggle9" type="checkbox">
+            <label for="toggle9">レインシューズ</label>
+            <input id="toggle10" type="checkbox">
+            <label for="toggle10">バレエシューズ</label>
+            <input id="toggle11" type="checkbox">
+            <label for="toggle11">モカシン/デッキシューズ</label>
+            <input id="toggle12" type="checkbox">
+            <label for="toggle12">シューケア/シューズ小物</label>
+            <input id="toggle13" type="checkbox">
+            <label for="toggle13">その他シューズ</label>
+
+            <!-- ジャンル選択の関する要素はこのdivの中に書く -->
+          </div>
+          <input type="submit" value="Search" class="btn-search" />
+        </form>
+      </div>
+
+      <div class="sub-controll-box">
+        <div id="order-box">
+          <span>並び替え</span>
+          <select id="order" onChange="onChangeSortHandler()">
+            <option value="none">なし</option>
+            <option value="popu">人気順</option>
+            <option value="plow">◯◯順</option>
+            <option value="phigh">××順</option>
+          </select>
+        </div>
+        <div id="item-num">-件Hit!!!</div>
+      </div>
+      <div id="loading-icon" style="text-align: center; display: none">
+        <img src="loading.gif" />
+      </div>
+
+      <div id="table-wrapper"></div>
+    </div>
+
+    <div id="footer">
+      <a>©︎2024 ISDL, Created by N.Masuda, and Y.Yamaguchi</a>
+      <br />
+      <a>Authorized by Associate Prof., Keiko Ono</a>
+    </div>
+  </body>
+</html>
