@@ -36,8 +36,12 @@ const onChangeSortHandler = () => {
     const orderIndx = document.getElementById('order').selectedIndex;
 
     // 並び替えに関する条件を追加
-    if (orderIndx == 1) {  // 人気順
+    if (orderIndx === 1) {  // 人気順
         items.sort((a, b) => b.num_of_favorite - a.num_of_favorite);
+    } else if (orderIndx === 2) {  // 安い順
+        items.sort((a, b) => a.price - b.price);
+    } else if (orderIndx === 3) {  // 高い順
+        items.sort((a, b) => b.price - a.price);
     }
 
     // アイテム表示欄を取得し空にする, 各アイテムを格納
@@ -47,6 +51,7 @@ const onChangeSortHandler = () => {
         parent.appendChild(createItem(item));
     });
 }
+
 
 // 検索クエリの作成と検索結果の反映
 const search = (brand = '', genres = [], minPrice = 0, maxPrice = 100000) => {
