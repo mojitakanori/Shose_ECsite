@@ -238,3 +238,27 @@
     background-color: #ffd1d1;
 }
 
+
+
+.price-range {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.price-range label {
+    margin-right: 10px;  /* ラベルとスライダーの間のスペース */
+    display: flex;
+    align-items: center;
+}
+
+.price-value {
+    display: inline-block;
+    width: 60px; /* 必要に応じて幅を調整 */
+    text-align: right;  /* 価格を右寄せにすることで、桁数が変わっても影響を受けない */
+}
+
+input[type="range"] {
+    flex-grow: 1;  /* スライダーがラベルの横でスペースを埋める */
+}

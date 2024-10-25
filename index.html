@@ -22,15 +22,22 @@
         <a>検索条件</a>
         <form onsubmit="onClickSearchHandler();return false;">
           <label>ブランド</label>
-          <input
-            type="text"
-            id="txtbox-brand"
-            name="param"
-            placeholder="NIKE"
-          />
-          <label style="font-size: 0.8em; color: gray"
-            >NIKE, adidas, REMME, ONITSUKA TIGER, ...</label
-          >
+          <input type="text" id="txtbox-brand" name="param" placeholder="NIKE" />
+          <label style="font-size: 0.8em; color: gray">NIKE, adidas, REMME, ONITSUKA TIGER, ...</label>
+          <br />
+          <label>価格範囲</label>
+          <div class="price-range">
+              <label for="min-price">下限価格: <span id="min-price-value" class="price-value">0</span>円</label>
+              <input type="range" id="min-price" name="min-price" min="0" max="100000" step="500" value="0"
+                     oninput="document.getElementById('min-price-value').innerText = this.value" />
+          </div>
+      
+          <div class="price-range">
+              <label for="max-price">上限価格: <span id="max-price-value" class="price-value">100000</span>円</label>
+              <input type="range" id="max-price" name="max-price" min="0" max="100000" step="500" value="100000"
+                     oninput="document.getElementById('max-price-value').innerText = this.value" />
+          </div>
+
           <div id="genre-select-box">
             <input id="toggle1" type="checkbox" />
             <label for="toggle1">スニーカー</label>
@@ -58,8 +65,6 @@
             <label for="toggle12">シューケア/シューズ小物</label>
             <input id="toggle13" type="checkbox">
             <label for="toggle13">その他シューズ</label>
-
-            <!-- ジャンル選択の関する要素はこのdivの中に書く -->
           </div>
           <input type="submit" value="Search" class="btn-search" />
         </form>
