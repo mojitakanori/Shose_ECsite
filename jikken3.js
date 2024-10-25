@@ -22,8 +22,11 @@ const onClickSearchHandler = () => {
     const minPrice = document.getElementById('min-price').value;
     const maxPrice = document.getElementById('max-price').value;
 
+    // 選択されたサイズを取得
+    const selectedSize = document.getElementById('size-dropdown').value;
+
     // 検索クエリの作成と検索結果の反映
-    search(text, selectedGenres, minPrice, maxPrice)
+    search(text, selectedGenres, minPrice, maxPrice, selectedSize);
 }
 
 let DATA = null;
@@ -54,7 +57,7 @@ const onChangeSortHandler = () => {
 
 
 // 検索クエリの作成と検索結果の反映
-const search = (brand = '', genres = [], minPrice = 0, maxPrice = 100000) => {
+const search = (brand = '', genres = [], minPrice = 0, maxPrice = 100000, size = '') => {
     // 引数の型チェック
     if (typeof (brand) != 'string' || !Array.isArray(genres)) {
         return "invalid argument";
@@ -93,6 +96,15 @@ const search = (brand = '', genres = [], minPrice = 0, maxPrice = 100000) => {
         EAN['#price'] = 'price';
         EAV[':minPrice'] = Number(minPrice);
         EAV[':maxPrice'] = Number(maxPrice);
+    }
+
+    // サイズの条件を追加
+    if (size !== '') {
+        if (queryStr !== '') queryStr += ' AND ';
+        queryStr += `(#stocks.#size = :sizeAvailable)`;
+        EAN['#stocks'] = 'stocks';
+        EAN['#size'] = size;
+        EAV[':sizeAvailable'] = true;
     }
 
     // クエリパラメータの設定

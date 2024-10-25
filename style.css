@@ -1,5 +1,5 @@
 #header {
-    background-color: #309b9b;
+    background-color: #7097e5;
     color: white;
     text-align: center;
     vertical-align: middle;
@@ -15,7 +15,7 @@
 .controll-box {
     margin: 1em;
     padding: 1em;
-    border: 2px solid #309b9b;
+    border: 2px solid #7097e5;
     border-radius: 5px;
 }
 
@@ -29,11 +29,11 @@
 
 #txtbox-brand {
     width: 10em;
-    padding: 10px 10px; /* ボックスを大きくする */
+    padding: 10px 10px;
     font-size: 16px;
-    border-radius: 3px; /*ボックス角の丸み*/
-    border: 2px solid rgb(172, 172, 172); /*枠線*/
-    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+    border-radius: 3px;
+    border: 2px solid rgb(172, 172, 172);
+    box-sizing: border-box;
 }
 
 #txtbox-brand::placeholder {
@@ -46,16 +46,17 @@
     padding: 7px 80px;
     margin-left: 38%;
     color: #FFF;
-    background: #fd9535;
+    background: #007bef;
     border-radius: 5px;
-    border: 2px solid #fd9535;
+    border: 2px solid #007bef;
     font-size: 20px;
-    /* box-shadow: 3px 3px 3px #666666; */
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     transition: .3s;
 }
 
 .btn-search:hover {
-    color: #fd9535;
+    color: #007bef;
     background: white;
 }
 
@@ -68,17 +69,21 @@
     gap: 10px;
 }
 
+#genre-select-box label:hover {
+    border-color: #f4371a;
+    background-color: #5077c3;
+}
+
 #genre-select-box input {
     display: none;
 }
 
-#genre-select-box label{
+#genre-select-box label {
     position: relative;
-    
     padding: 5px 8px 5px 30px;
     border-radius: 100px;
     color: #fff;
-    background-color: #309b9b;
+    background-color: #7097e5;
     cursor: pointer;
     transition: background-color .2s, box-shadow .2s;
 }
@@ -96,11 +101,11 @@
     transition: background-color .2s;
 }
 
-#genre-select-box  input:checked + label {
-    background-color: #d257ce;
+#genre-select-box input:checked + label {
+    background-color: #f4371a;
 }
 
-#genre-select-box  input:checked + label::before {
+#genre-select-box input:checked + label::before {
     background-color: #fff;
 }
 
@@ -110,15 +115,14 @@
 
 #order {
     width: 10em;
-    padding: 10px 10px; /* ボックスを大きくする */
+    padding: 10px 10px;
     font-size: 14px;
-    border-radius: 3px; /*ボックス角の丸み*/
-    border: 2px solid rgb(172, 172, 172); /*枠線*/
-    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+    border-radius: 3px;
+    border: 2px solid rgb(172, 172, 172);
+    box-sizing: border-box;
 }
 
 #item-num {
-    /* display:inline; */
     float: right;
     font-size: 1.2em;
 }
@@ -131,7 +135,7 @@
 
 #footer {
     margin-top: 2em;
-    background-color: #309b9b;
+    background-color: #7097e5;
     color: white;
     text-align: center;
     vertical-align: middle;
@@ -158,7 +162,7 @@
 }
 
 .item-fav {
-    
+
 }
 
 .item-thumb {
@@ -197,7 +201,6 @@
     opacity: 1;
 }
 
-
 .item-brand {
     display: block;
 }
@@ -212,7 +215,6 @@
     font-weight: bold;
 }
 
-
 .item-target {
     margin-right: 2em;
 }
@@ -221,7 +223,7 @@
 
 }
 
-.item-stocks a{
+.item-stocks a {
     float: left;
     font-size: 80%;
     border: solid 1px #575757;
@@ -238,8 +240,6 @@
     background-color: #ffd1d1;
 }
 
-
-
 .price-range {
     display: flex;
     align-items: center;
@@ -248,17 +248,115 @@
 }
 
 .price-range label {
-    margin-right: 10px;  /* ラベルとスライダーの間のスペース */
+    margin-right: 10px;
     display: flex;
     align-items: center;
 }
 
 .price-value {
     display: inline-block;
-    width: 60px; /* 必要に応じて幅を調整 */
-    text-align: right;  /* 価格を右寄せにすることで、桁数が変わっても影響を受けない */
+    width: 60px;
+    text-align: right;
 }
 
 input[type="range"] {
-    flex-grow: 1;  /* スライダーがラベルの横でスペースを埋める */
+    flex-grow: 1;
+}
+
+#size-dropdown {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #7097e5;
+    background-color: #f9f9f9;
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="0,0 140,0 70,70" fill="#7097e5"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+#size-dropdown:hover {
+    border-color: #f4371a;
+}
+
+#size-dropdown:focus {
+    outline: none;
+    border-color: #f4371a;
+}
+
+.price-range {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+}
+
+.price-range label {
+    white-space: nowrap;
+    font-weight: bold;
+    color: #333;
+}
+
+.price-value {
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+    font-size: 16px;
+    color: #f4371a;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #7097e5;
+    outline: none;
+    opacity: 0.9;
+    transition: opacity .15s ease-in-out;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f4371a;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f4371a;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    background-color: #e12d16;
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+    background-color: #e12d16;
 }
